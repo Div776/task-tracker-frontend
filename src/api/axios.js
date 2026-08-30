@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8081/api',
+  baseURL: 'https://task-tracker-backend-lom1.onrender.com',
 });
 
 api.interceptors.request.use((config) => {
