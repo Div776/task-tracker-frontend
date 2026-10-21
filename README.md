@@ -19,7 +19,7 @@ React client for a full-stack task manager with JWT login and task management.
 
 ## Tech Stack
 
-React · Vite · Tailwind CSS · React Router · Axios · Deployed on Vercel
+React · Vite · React Router · Axios · Deployed on Vercel
 
 ## Run Locally
 
