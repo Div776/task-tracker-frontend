@@ -3,6 +3,7 @@
 React client for a full-stack task manager with JWT login and task management.
 
 **Live demo:** https://task-tracker-frontend-lake-eta.vercel.app
+
 **Backend repo:** https://github.com/Div776/task-tracker-backend
 
 > The backend is hosted on a free tier, so the first login after idle time can take up to a minute.
