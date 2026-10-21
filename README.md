@@ -1,16 +1,40 @@
-# React + Vite
+# Task Tracker — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React client for a full-stack task manager with JWT login and task management.
 
-Currently, two official plugins are available:
+**Live demo:** https://task-tracker-frontend-lake-eta.vercel.app
+**Backend repo:** https://github.com/Div776/task-tracker-backend
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+> The backend is hosted on a free tier, so the first login after idle time can take up to a minute.
 
-## React Compiler
+<!-- Add a screenshot or GIF of the app here -->
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Register and log in with JWT authentication
+- Create, view, edit, and delete tasks
+- Protected routes with automatic token handling (axios interceptor)
+- Logout and session handling
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+React · Vite · Tailwind CSS · React Router · Axios · Deployed on Vercel
+
+## Run Locally
+
+```bash
+git clone https://github.com/Div776/task-tracker-frontend.git
+cd task-tracker-frontend
+npm install
+npm run dev
+```
+
+Point the API base URL in `src/api/axios.js` to your backend (local or the live API).
+
+## What I Built
+
+I built the whole UI myself: the login and register pages, the task management screen, routing, and the axios setup that attaches the JWT to every request. I also connected it to my Spring Boot backend and deployed it.
+
+## Author
+
+Divyansh — [GitHub](https://github.com/Div776)
