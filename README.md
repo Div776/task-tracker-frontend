@@ -8,7 +8,8 @@ React client for a full-stack task manager with JWT login and task management.
 
 > The backend is hosted on a free tier, so the first login after idle time can take up to a minute.
 
-<!-- Add a screenshot or GIF of the app here -->
+<img width="1327" height="513" alt="Screenshot 2026-10-21 135500" src="https://github.com/user-attachments/assets/6fbb3553-e220-485b-90bd-fbada0aa770d" />
+
 
 ## Features
 
