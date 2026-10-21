@@ -19,8 +19,11 @@ function Register() {
       setSuccess(true);
       setTimeout(() => navigate('/login'), 1500);
     } catch (err) {
-      setError('Registration failed. Username may already be taken.');
-    } finally {
+  const status = err.response?.status;
+  const data = err.response?.data;
+  const msg = typeof data === 'string' ? data : data?.message || err.message;
+  setError(`Registration failed (${status || 'no response'}): ${msg}`);
+} finally {
       setLoading(false);
     }
   };
