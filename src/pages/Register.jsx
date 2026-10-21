@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import api from '../api/axios';
 
 function Register() {
@@ -7,17 +7,21 @@ function Register() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
     try {
       await api.post('/auth/register', { username, password });
       setSuccess(true);
       setTimeout(() => navigate('/login'), 1500);
     } catch (err) {
       setError('Registration failed. Username may already be taken.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -45,8 +49,13 @@ function Register() {
         </div>
         {error && <p style={{ color: 'red' }}>{error}</p>}
         {success && <p style={{ color: 'green' }}>Registered! Redirecting to login...</p>}
-        <button type="submit">Register</button>
+        <button type="submit" disabled={loading}>
+          {loading ? 'Registering... (server may take up to a minute to wake)' : 'Register'}
+        </button>
       </form>
+      <p>
+        Already have an account? <Link to="/login">Login</Link>
+      </p>
     </div>
   );
 }

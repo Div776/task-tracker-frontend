@@ -1,22 +1,26 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import api from '../api/axios';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
     try {
       const response = await api.post('/auth/login', { username, password });
       localStorage.setItem('token', response.data.token);
       navigate('/tasks');
     } catch (err) {
       setError('Invalid username or password');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -43,8 +47,13 @@ function Login() {
           />
         </div>
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">Login</button>
+        <button type="submit" disabled={loading}>
+          {loading ? 'Logging in... (server may take up to a minute to wake)' : 'Login'}
+        </button>
       </form>
+      <p>
+        Don't have an account? <Link to="/register">Register</Link>
+      </p>
     </div>
   );
 }
